@@ -211,8 +211,17 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* num */) {
-  throw new Error('Not implemented');
+function isPrime(num) {
+  // throw new Error('Not implemented');
+  // for (let i = 2; i <= Math.sqrt(num); i + 1) {
+  //   if (num % i === 0) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+  return num < 10
+    ? [2, 3, 5, 7].includes(num)
+    : ![2, 3, 5, 7].some((i) => !(num % i));
 }
 
 /**
@@ -491,8 +500,9 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  // throw new Error('Not implemented');
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -506,8 +516,9 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  // throw new Error('Not implemented');
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -520,8 +531,9 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(num) {
+  // throw new Error('Not implemented');
+  return Math.floor(num);
 }
 
 /**
@@ -534,8 +546,9 @@ function roundToSmallestInteger(/* number */) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(num) {
+  // throw new Error('Not implemented');
+  return Math.ceil(num);
 }
 
 /**
@@ -549,8 +562,9 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(num) {
+  // throw new Error('Not implemented');
+  return Math.round(num);
 }
 
 /**
@@ -564,8 +578,9 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(num) {
+  // throw new Error('Not implemented');
+  return Math.trunc(num);
 }
 
 /**
@@ -580,8 +595,9 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  // throw new Error('Not implemented');
+  return (x1 + x2 + x3).toFixed(1);
 }
 
 /**
@@ -596,8 +612,9 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNum, secondNum) {
+  // throw new Error('Not implemented');
+  return Math.max(firstNum, secondNum);
 }
 
 /**
@@ -612,8 +629,9 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  // throw new Error('Not implemented');
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 /**
@@ -626,8 +644,9 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  // throw new Error('Not implemented');
+  return Math.hypot(a, b);
 }
 
 /**
@@ -643,8 +662,15 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(num) {
+  // throw new Error('Not implemented');
+  const arr = [1];
+  let i = 3;
+  while (i <= Math.abs(num)) {
+    arr[arr.length] = i;
+    i += 2;
+  }
+  return arr.length;
 }
 
 module.exports = {
